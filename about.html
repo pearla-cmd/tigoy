@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - SOLEHAUS</title>
+    <link href="blazer.img" rel="stylesheet">
+    <link rel="stylesheet" href="blazer.img">
+    <style>
+        :root {
+            --bg-color: #0b0b0e;
+            --surface-color: #141419;
+            --accent-color: #c8ff00;
+            --text-main: #ffffff;
+            --text-muted: #9494a0;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Syne', sans-serif;
+        }
+
+        /* Top Bar */
+        .top-banner {
+            background: var(--accent-color);
+            color: #000;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            padding: 8px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Navigation Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 5%;
+            background: rgba(11, 11, 14, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--text-main);
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--text-main);
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-icons i {
+            font-size: 18px;
+            cursor: pointer;
+            color: var(--text-main);
+            transition: color 0.2s;
+        }
+
+        .nav-icons i:hover {
+            color: var(--accent-color);
+        }
+
+        /* About Hero Section */
+        .about-hero {
+            padding: 80px 5% 60px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-tag {
+            display: inline-block;
+            background: rgba(200, 255, 0, 0.1);
+            color: var(--accent-color);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(200, 255, 0, 0.2);
+        }
+
+        .about-hero h1 {
+            font-size: 52px;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .about-hero h1 span {
+            color: var(--accent-color);
+        }
+
+        .about-hero p {
+            color: var(--text-muted);
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Story Section with Grid */
+        .story-section {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .story-image {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: var(--surface-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .story-image img {
+            width: 100%;
+            max-width: 450px;
+            transform: rotate(-10deg);
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+        }
+
+        .story-content h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .story-content p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* Stats Counter Section */
+        .stats-grid {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            width: 100%;
+        }
+
+        .stat-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-4px);
+        }
+
+        .stat-card h3 {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+        }
+
+        .stat-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Core Values Section */
+        .values-section {
+            background: var(--surface-color);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 80px 5%;
+        }
+
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            transition: border-color 0.2s;
+        }
+
+        .value-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .value-icon {
+            background: rgba(200, 255, 0, 0.1);
+            color: var(--accent-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .value-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface-color);
+            padding: 40px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left p {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-socials a {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .footer-socials a:hover {
+            background: var(--accent-color);
+            color: #000;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .story-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .about-hero h1 {
+                font-size: 38px;
+            }
+            .nav-menu {
+                display: none;
+            }
+            footer {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Announcement Bar -->
+    <div class="top-banner">
+        ⚡ Welcome to DODO STORE - Where Street Culture Meets Innovation
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <a href="#" class="logo">SOLE<span>HAUS</span></a>
+        <ul class="nav-menu">
+            <li><a href="#">Discover</a></li>
+            <li><a href="#">Collection</a></li>
+            <li><a href="#" class="active">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-bag-shopping"></i>
+            <i class="fa-regular fa-user"></i>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <span class="about-tag">Our Legacy & Vision</span>
+        <h1>Driven By Passion. Defined By <span>Culture.</span></h1>
+        <p>At DODO STORE, we exist to bridge the gap between architectural footwear design and everyday streetwear performance.</p>
+    </section>
+
+    <!-- Story Grid Section -->
+    <section class="story-section">
+        <div class="story-image">
+            <img src="blazer.img" alt="Solehaus Culture Sneaker">
+        </div>
+        <div class="story-content">
+            <h2>The Story Behind The Sole</h2>
+            <p>Founded in 2022, SOLEHAUS started as a small underground boutique dedicated to rare, hard-to-find drops. What began as a community for sneaker enthusiasts quickly evolved into a global destination for high-tier streetwear and cutting-edge footwear aesthetics.</p>
+            <p>We curate only 100% authentic products, collaborating directly with independent creators, iconic sneaker powerhouses, and sustainable design studios to bring you drops that define modern fashion.</p>
+        </div>
+    </section>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>100k+</h3>
+            <p>Global Customers</p>
+        </div>
+        <div class="stat-card">
+            <h3>100%</h3>
+            <p>Verified Authentic</p>
+        </div>
+        <div class="stat-card">
+            <h3>50+</h3>
+            <p>Exclusive Drops</p>
+        </div>
+        <div class="stat-card">
+            <h3>24/7</h3>
+            <p>Dedicated Support</p>
+        </div>
+    </div>
+
+    <!-- Core Values Section -->
+    <section class="values-section">
+        <div class="values-container">
+            <div class="section-title">
+                <h2>Why Choose DODO STORE?</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3>Guaranteed Authenticity</h3>
+                    <p>Every pair goes through a rigorous multi-point verification process by our in-house specialists before reaching your doorstep.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3>Express Worldwide Shipping</h3>
+                    <p>Partnered with top logistics providers to ensure your drops arrive fast and securely anywhere in the world.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3>Eco-Conscious Packaging</h3>
+                    <p>We pack and ship all our products in 100% recycled and biodegradable materials to protect the planet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-left">
+            <a href="#" class="logo" style="font-size: 20px;">SOLE<span>HAUS</span></a>
+            <p>&copy; 2026 DODO STORE Studio. All rights reserved.</p>
+        </div>
+        <div class="footer-socials">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-discord"></i></a>
+        </div>
+    </footer>
+
+</body>
+</html>

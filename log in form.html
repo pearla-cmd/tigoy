@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SneakerVault - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(blazer.img);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Background decorative elements */
+        .bg-shape-1 {
+            position: absolute;
+            top: -150px;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+            background: rgba(blazer.img);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+        }
+
+        .bg-shape-2 {
+            position: absolute;
+            bottom: -150px;
+            right: -150px;
+            width: 400px;
+            height: 400px;
+            background: rgba(43, 135, 255, 0.15);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+        }
+
+        .login-container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            width: 850px;
+            height: 520px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        /* Left Side: Brand & Shoe Visual */
+        .brand-section {
+            flex: 1;
+            background: linear-gradient(135deg, rgba(255, 75, 43, 0.8) 0%, rgba(255, 107, 107, 0.8) 100%);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .brand-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('blazer.img') center/cover no-repeat;
+            opacity: 0.25;
+            mix-blend-mode: overlay;
+        }
+
+        .brand-logo {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-content {
+            z-index: 1;
+        }
+
+        .brand-content h2 {
+            color: #fff;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .brand-content p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        /* Right Side: Form Section */
+        .form-section {
+            flex: 1;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: rgba(20, 20, 20, 0.7);
+        }
+
+        .form-header h3 {
+            color: #fff;
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-header p {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group i {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            color: #777;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px 15px 14px 45px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            border-color: #ff4b2b;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 10px rgba(255, 75, 43, 0.2);
+        }
+
+        .input-group input:focus ~ i {
+            color: #ff4b2b;
+        }
+
+        .input-group input::placeholder {
+            color: #666;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 13px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #aaa;
+            cursor: pointer;
+        }
+
+        .remember-me input {
+            accent-color: #ff4b2b;
+            cursor: pointer;
+        }
+
+        .forgot-pass {
+            color: #ff4b2b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .forgot-pass:hover {
+            opacity: 0.8;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 75, 43, 0.6);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .signup-prompt {
+            text-align: center;
+            margin-top: 25px;
+            color: #888;
+            font-size: 13px;
+        }
+
+        .signup-prompt a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 5px;
+        }
+
+        .signup-prompt a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .login-container {
+                width: 90%;
+                max-width: 450px;
+                height: auto;
+            }
+            .brand-section {
+                display: none;
+            }
+            .form-section {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-shape-1"></div>
+    <div class="bg-shape-2"></div>
+
+    <div class="login-container">
+        <!-- Left Banner: Shoe Theme -->
+        <div class="brand-section">
+            <div class="brand-logo">
+                <i class="fa-solid fa-shoe-prints"></i> SneakerVault
+            </div>
+            <div class="brand-content">
+                <h2>Step Into<br>The Future.</h2>
+                <p>Log in to access limited drops, exclusive collections, and your member rewards.</p>
+            </div>
+        </div>
+
+        <!-- Right Form Panel -->
+        <div class="form-section">
+            <div class="form-header">
+                <h3>Welcome Back</h3>
+                <p>Please enter your details to sign in.</p>
+            </div>
+
+            <form>
+                <div class="input-group">
+                    <input type="email" placeholder="Email address" required>
+                    <i class="fa-regular fa-envelope"></i>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" placeholder="Password" required>
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+
+                <div class="form-actions">
+                    <label class="remember-me">
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="#" class="forgot-pass">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="login-btn">Sign In</button>
+            </form>
+
+            <div class="signup-prompt">
+                Don't have an account?<a href="#">Create account</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
